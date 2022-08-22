@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+  </head>
+  <body>
+    <h1>Vé Số Online</h1>
+    <div id="container"></div>
+    <input
+      type="button"
+      id="buyTicket"
+      value="Buy Ticket"
+      onclick="buyTicket()"
+    />
+    <input
+      type="button"
+      id="checkResult"
+      value="Check Result"
+      onclick="checkResult()"
+    />
+    <script>
+      let ticket = Array(4).fill(0);
+      class Ticket {
+        static win_Number = Array(6).fill(0);
+        constructor() {
+          this.min = 1;
+          this.max = 99;
+          this.number = Array(6).fill(0);
+        }
+        randomNumber(min = this.min, max = this.max) {
+          return Math.floor(Math.random() * (max - min) + min);
+        }
+        chooseNumber() {
+          let arr = new Array(6).fill(0);
+          for (let i = 0; i < arr.length; i++) {
+            arr[i] = parseInt(prompt(`Nhap so thu ${i + 1}`));
+          }
+          this.number = arr;
+          return this.number;
+        }
+        chooseRandomNumber() {
+          let arr = new Array(6).fill(0);
+          for (let i = 0; i < arr.length; i++) {
+            arr[i] = this.randomNumber();
+          }
+          this.number = arr;
+          return this.number;
+        }
+        rollWinNumbers() {
+          let arr = new Array(6).fill(4);
+          for (let i = 0; i < arr.length; i++) {
+            arr[i] = this.randomNumber();
+          }
+          Ticket.win_Number = arr;
+        }
+        displayWinNumber() {
+          this.rollWinNumbers();
+          return this.displayTable(Ticket.win_Number);
+        }
+        displayTable(number = this.number) {
+          let str = "<table border ='1'><tr>";
+          for (let i = 0; i < number.length; i++) {
+            str += `<td> ${number[i]} </td>`;
+          }
+          return (str += `</tr></table>`);
+        }
+
+        checkWin() {
+          let conditionWin = this.number.filter((x) =>
+            Ticket.win_Number.includes(x)
+          ).length;
+          switch (conditionWin) {
+            case 3:
+              alert(`Consolation prizes with 30$`);
+              break;
+            case 4:
+              alert(`The second prize with 100$`);
+              break;
+            case 5:
+              alert(`The first prize with 200$`);
+              break;
+            case 6:
+              alert(`Jackpot with 10000$`);
+              break;
+            default:
+              alert(`Good Luck Next Time`);
+              break;
+          }
+        }
+      }
+
+      function buyTicket() {
+        for (let i = 0; i < 4; i++) {
+          let choice = parseInt(
+            prompt(`You have 3 choose:
+                      + 1. Choose Number
+                      + 2. Random Number
+                      + 3. Quit`)
+          );
+          if (choice >= 3) break;
+          ticket[i] = new Ticket();
+          if (choice == 1) {
+            ticket[i].chooseNumber();
+          } else if (choice == 2) {
+            ticket[i].chooseRandomNumber();
+          }
+        }
+        let content = `<h2>YOUR TICKET</h2>`;
+        for (let i = 0; i < 4; i++) {
+          content += ticket[i].displayTable();
+        }
+        content += `<h1>Win Ticket</h1>`;
+        content += ticket[0].displayWinNumber();
+        document.getElementById("container").innerHTML = content;
+      }
+      console.table(ticket);
+      function checkResult() {
+        for (let i = 0; i < 4; i++) {
+          ticket[i].checkWin();
+        }
+      }
+    </script>
+  </body>
+</html>
