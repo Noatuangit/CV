@@ -128,34 +128,55 @@ for each row
 begin 
 delete from contract_details where contract_details.contract_id = old.id;
 end$$
-
 DELIMITER ;
 
 DELIMITER $$
-create trigger delete_customer
-before delete on customer
+create trigger update_contract
+after update on contract
 for each row 
 begin 
-delete from contract where contract.customer_id = old.id;
+if new.`status` = "off" 
+then 
+delete from contract_details where contract_details.contract_id = new.id;
+end if;
 end$$
 
 DELIMITER ;
 
 DELIMITER $$
-create trigger delete_employee
-before delete on employee
+create trigger update_customer
+after update on customer
+for each row  
+begin 
+if new.`status` = "off" 
+then 
+update contract set `status` = "off" where contract.customer_id = old.id;
+end if;
+end$$
+
+DELIMITER ;
+
+DELIMITER $$
+create trigger update_employee
+after update on employee
 for each row 
 begin 
-delete from contract where contract.customer_id = old.id;
+if new.`status` = "off" 
+then 
+update contract set `status` = "off" where contract.employee_id = old.id;
+end if;
 end$$
 
 DELIMITER ;
 DELIMITER $$
-create trigger delete_service
-before delete on service
+create trigger update_service
+after update on service
 for each row 
 begin 
-delete from contract where contract.service_id = old.id;
+if new.`status` = "off" 
+then 
+update contract set `status` = "off" where contract.service_id = old.id;
+end if;
 end$$
 
 DELIMITER ;
