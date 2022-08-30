@@ -16,7 +16,7 @@
     <a class="flex-sm-fill text-sm-center nav-link" href="/customer?action=displayCustomer">Customer</a>
     <a class="flex-sm-fill text-sm-center nav-link" href="/employee?action=displayEmployee">Employee</a>
     <a class="flex-sm-fill text-sm-center nav-link" href="/service?action=displayService">Service</a>
-    <a class="flex-sm-fill text-sm-center nav-link" href="/list?action=displayContract">Contract</a>
+    <a class="flex-sm-fill text-sm-center nav-link" href="/contract?action=displayContract">Contract</a>
 </nav>
 <form method="post">
     <section class="h-100 bg-dark">

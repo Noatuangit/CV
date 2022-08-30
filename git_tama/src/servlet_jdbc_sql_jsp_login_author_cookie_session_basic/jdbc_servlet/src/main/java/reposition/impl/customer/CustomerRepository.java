@@ -66,6 +66,7 @@ public class CustomerRepository implements IBaseRepository<Customer> {
         }
     }
 
+
     @Override
     public List<Customer> findByName(String name) {
         List<Customer> list = new ArrayList<>();
@@ -116,6 +117,7 @@ public class CustomerRepository implements IBaseRepository<Customer> {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+
         return list;
     }
 

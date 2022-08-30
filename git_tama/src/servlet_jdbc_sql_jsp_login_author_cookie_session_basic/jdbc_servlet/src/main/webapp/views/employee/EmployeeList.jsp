@@ -90,6 +90,7 @@
         </tr>
     </c:forEach>
 </table>
+
 <c:if test="${max_page != null}">
     <div>
         <ul class="pagination justify-content-center">

@@ -16,7 +16,7 @@
     <a class="flex-sm-fill text-sm-center nav-link" href="/customer?action=displayCustomer">Customer</a>
     <a class="flex-sm-fill text-sm-center nav-link" href="/employee?action=displayEmployee">Employee</a>
     <a class="flex-sm-fill text-sm-center nav-link" href="/service?action=displayService">Service</a>
-    <a class="flex-sm-fill text-sm-center nav-link" href="/list?action=displayContract">Contract</a>
+    <a class="flex-sm-fill text-sm-center nav-link" href="/contract?action=displayContract">Contract</a>
 </nav>
 
 <section class="h-100 h-custom gradient-custom-2">
@@ -98,7 +98,7 @@
                                                 <label>
                                                     <label class="form-label">Type Customer</label>
                                                     <select class="select" name="customer_type" required>
-                                                        <c:forEach items="${listRent}" var="item">
+                                                        <c:forEach items="${listType}" var="item">
                                                             <c:choose>
                                                                 <c:when test="${service.re == item.id}">
                                                                     <option value="${item.id}" selected>
