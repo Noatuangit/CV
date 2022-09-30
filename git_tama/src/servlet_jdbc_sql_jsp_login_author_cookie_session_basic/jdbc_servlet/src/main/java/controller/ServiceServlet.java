@@ -146,6 +146,7 @@ public class ServiceServlet extends HttpServlet {
         request.setAttribute("services", services);
         request.setAttribute("link", link);
         request.setAttribute("max_page", max_page);
+        request.setAttribute("offset", offset);
         TypeOfServiceAddOn.TypeOfService(rentTypeITypeService, typeService, request);
         try {
             request.getRequestDispatcher("views/service/ServiceList.jsp").forward(request, response);

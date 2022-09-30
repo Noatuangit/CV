@@ -86,6 +86,9 @@
                 <a href="/employee?action=updateEmployee&&id=${item.id}">
                     <i class="fa-solid fa-wrench"></i>
                 </a>
+                <button data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Launch demo modal
+                </button>
             </td>
         </tr>
     </c:forEach>
@@ -94,10 +97,28 @@
 <c:if test="${max_page != null}">
     <div>
         <ul class="pagination justify-content-center">
+            <c:choose>
+                <c:when test="${offset == 0}">
+                    <li class="page-item"><a class="page-link" href="#" style="color: darkgray">Previous</a></li>
+                </c:when>
+                <c:otherwise>
+                    <li class="page-item"><a class="page-link"
+                                             href="/employee?action=${link}&&offset=${offset - 1}">Previous</a></li>
+                </c:otherwise>
+            </c:choose>
             <c:forEach begin="1" end="${max_page}" var="item">
                 <li class="page-item"><a class="page-link"
                                          href="/employee?action=${link}&&offset=${item-1}">${item}</a></li>
             </c:forEach>
+            <c:choose>
+                <c:when test="${offset == max_page - 1}">
+                    <li class="page-item"><a class="page-link" href="#" style="color: darkgray">Next</a></li>
+                </c:when>
+                <c:otherwise>
+                    <li class="page-item"><a class="page-link"
+                                             href="/employee?action=${link}&&offset=${offset  + 1}">Next</a></li>
+                </c:otherwise>
+            </c:choose>
         </ul>
     </div>
 </c:if>
@@ -123,6 +144,24 @@
     </div>
 </div>
 
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalaLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
 <script>
     function showInfoDelete(id, name) {
         document.getElementById("deleteId").value = id;

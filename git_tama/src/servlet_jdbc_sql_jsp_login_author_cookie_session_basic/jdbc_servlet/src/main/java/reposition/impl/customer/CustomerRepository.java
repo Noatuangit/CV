@@ -123,7 +123,7 @@ public class CustomerRepository implements IBaseRepository<Customer> {
 
 
     @Override
-    public List<Customer> getList   () {
+    public List<Customer> getList() {
         List<Customer> list = new ArrayList<>();
         try (Connection connection = ConnectData.getConnect(); PreparedStatement statement = connection.prepareStatement(list_customer_to_Contract)) {
             ResultSet resultSet = statement.executeQuery();

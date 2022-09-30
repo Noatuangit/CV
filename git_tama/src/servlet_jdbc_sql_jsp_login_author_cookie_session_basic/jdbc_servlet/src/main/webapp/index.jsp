@@ -27,16 +27,16 @@
         <a href="index.jsp">Home</a>
       </td>
       <td class="bar-menu-nav">
-        <a href="/customer?action=displayCustomer">Customer</a>
+        <a href="customer?action=displayCustomer">Customer</a>
       </td>
       <td class="bar-menu-nav">
-        <a href="/employee?action=displayEmployee">Employee</a>
+        <a href="employee?action=displayEmployee">Employee</a>
       </td>
       <td class="bar-menu-nav">
-        <a href="/service?action=displayService">Service</a>
+        <a href="service?action=displayService">Service</a>
       </td>
       <td class="bar-menu-nav">
-        <a href="/contract?action=displayContract">Contract</a>
+        <a href="contract?action=displayContract">Contract</a>
       </td>
     </tr>
   </table>

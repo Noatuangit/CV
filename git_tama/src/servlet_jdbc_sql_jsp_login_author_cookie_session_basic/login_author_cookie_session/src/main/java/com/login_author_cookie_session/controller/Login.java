@@ -2,16 +2,12 @@ package com.login_author_cookie_session.controller;
 
 import com.login_author_cookie_session.models.Account;
 import com.login_author_cookie_session.service.AccountService;
-import com.login_author_cookie_session.utils.InitTable;
 import com.login_author_cookie_session.utils.SessionUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.Optional;
 
 @WebServlet(name = "login", value = "/loginAccount")

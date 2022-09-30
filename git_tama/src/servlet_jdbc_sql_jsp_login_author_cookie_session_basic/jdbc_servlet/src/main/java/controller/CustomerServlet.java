@@ -28,7 +28,6 @@ public class CustomerServlet extends HttpServlet {
     IBaseService<Customer> customerService = new CustomerService();
     ITypeService<TypeCustomer> typeService = new TypeCustomerService();
 
-
     @SneakyThrows
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = Optional.ofNullable(request.getParameter("action")).orElse("");
@@ -120,6 +119,7 @@ public class CustomerServlet extends HttpServlet {
         int max_page = customerService.countAmountFindAll();
         request.setAttribute("customers", customers);
         request.setAttribute("max_page", max_page);
+        request.setAttribute("offset", offset);
         TypeOfCustomerAddOn.transTypeOfCustomer(typeService, request, "displayCustomer");
         try {
             request.getRequestDispatcher("views/customer/CustomerList.jsp").forward(request, response);

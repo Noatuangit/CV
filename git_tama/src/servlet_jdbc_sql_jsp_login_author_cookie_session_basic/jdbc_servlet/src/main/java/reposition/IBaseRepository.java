@@ -14,9 +14,10 @@ public interface IBaseRepository<E> {
 
     E findById(int id);
 
-    public int countAmountFindAll();
+    int countAmountFindAll();
 
     List<E> getList(int offset,String query);
 
     List<E> getList();
+
 }

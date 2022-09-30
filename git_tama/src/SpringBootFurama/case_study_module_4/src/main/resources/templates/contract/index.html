@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+</head>
+<body>
+<div style="text-align: center">
+    <h1>CONTRACT</h1>
+</div>
+<nav th:replace="contract/layout::header"></nav>
+
+<div class="container-fluid position-relative">
+    <div class="row">
+        <div class="col-lg-12 d-flex justify-content-center  position-absolute" style="top: 10%">
+            <div class="row">
+                <table class="table table-striped">
+                    <tr>
+                        <th>No</th>
+                        <th>Date Start</th>
+                        <th>Date End</th>
+                        <th>Deposit</th>
+                        <th>Total Money</th>
+                        <th>Employee Name</th>
+                        <th>Customer Name</th>
+                        <th>Service Name</th>
+                        <th>Action</th>
+                    </tr>
+
+                    <tr th:each="item,state : ${list}">
+                        <td th:utext="${state.count}"></td>
+                        <td th:utext="${#dates.format(item.start_date, 'dd/MM/yyyy')}"></td>
+                        <td th:utext="${#dates.format(item.end_date, 'dd/MM/yyyy')}"></td>
+                        <td th:utext="${#numbers.formatDecimal(item.deposit, 1, 'DEFAULT', 2, 'DEFAULT')}"></td>
+                        <td th:utext="${#numbers.formatDecimal(item.total_money, 1, 'DEFAULT', 2, 'DEFAULT')}"></td>
+                        <td th:utext="${item.customer}"></td>
+                        <td th:utext="${item.employee}"></td>
+                        <td th:utext="${item.mainService}"></td>
+                        <td>
+                            <button type="button" class="btn btn-dark" data-bs-toggle="modal"
+                                    th:attr="onclick=|showInfoCreate('${item.id}')|"
+                                    data-bs-target="#newContractDetail"><span
+                                    class="material-symbols-outlined">+</span>
+                            </button>
+                            <button type="button" th:onclick=|showInfoDelete(${item.id})|
+                                    class="btn btn-outline-danger"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#delete">
+                                <i class="fa-solid fa-eraser"></i>
+                            </button>
+
+                            <button type="button" th:onclick="showInfo([[${item.listContractDetails}]])"
+                                    class="btn btn-outline-info"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop">
+                                <i class="fa-solid fa-circle-info"></i>
+                            </button>
+<!--                            <a th:href="@{/contract/edit/{id}(id= ${item.id})}" style="text-decoration: none">-->
+<!--                                <button type="button" class="btn btn-outline-primary">-->
+<!--                                    <i class="fa-solid fa-highlighter"></i>-->
+<!--                                </button>-->
+<!--                            </a>-->
+                        </td>
+                    </tr>
+                </table>
+
+                <!--page-->
+                <div>
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item" th:each="i: ${#numbers.sequence(1, page_max)}">
+                            <a class="page-link" th:href="@{'/contract'(page=${i - 1},name_search=${name_search})}" th:text="${i}">
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+
+        <!--Contract Detail-->
+        <div class="modal fade" id="newContractDetail" tabindex="-1" aria-labelledby="exampleModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Create new Contract Detail</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-3"><label for="attachFacilityId" class="form-label">Attach
+                                Facility</label></div>
+                            <div class="col-lg-9"><select id="attachFacilityId" class="form-select">
+                                <option th:each="attach : ${attachList}"
+                                        th:value="${attach.id}"
+                                        th:text="${attach.name} + ' have cost ' + ${attach.attach_service_cost}"></option>
+                            </select>
+                            </div>
+                        </div>
+                        <div class="row mt-5">
+                            <div class="col-lg-3">Quantity</div>
+                            <div class="col-lg-9"><input class="form-control" type="number" id="quantity">
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary" id="create-detail">create</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!--         List Attach-->
+
+        <!--delete modal-->
+        <div class="modal fade" id="delete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <form action="/contract/delete">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModuleLabel">Delete Modal</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            Delete this ?
+                            <input type="hidden" id="deleteId" name="id">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-danger">Add</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Modal info -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+     aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Info this contract</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <table class="table table-striped">
+                <tr>
+                    <td>Attach Service</td>
+                    <td>Quantity</td>
+                </tr>
+                <tbody id="tableInfo">
+
+                </tbody>
+            </table>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="js/bootstrap.js"></script>
+
+<script src="Jquery/jquery-3.6.0.min.js"></script>
+<script>
+    function showInfoDelete(id) {
+        document.getElementById("deleteId").value = id;
+    }
+
+    function checkNumber() {
+        const quantity = document.getElementById("quantity").value;
+        if (quantity <= 0 || quantity == null) {
+            document.getElementById("error").innerText = "Quantity Must > 0";
+            return;
+        }
+        document.getElementById("error").innerText = "Correct Tips";
+    }
+
+    function showInfo(listContractDetails) {
+        document.getElementById("tableInfo").innerHTML = listContractDetails;
+    }
+
+</script>
+<script type="text/javascript">
+    function showInfoCreate(id) {
+        $("#create-detail").click(function () {
+            let contractId = id;
+            let attachDetail = $('#attachFacilityId').val();
+            let quantity = $('#quantity').val();
+
+            let contractDetail = {
+                contract: contractId,
+                attachService: attachDetail,
+                quantity: quantity,
+            };
+
+            console.log(contractDetail);
+            $.ajax({
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                type: "POST",
+                data: JSON.stringify(contractDetail),
+                url: "http://localhost:8080/contractRest/save",
+
+                success: function () {
+                    window.location = "/contract";
+
+                },
+                error: function () {
+                }
+            });
+        });
+    }
+
+</script>
+</body>
+</html>

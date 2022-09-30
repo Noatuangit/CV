@@ -86,10 +86,28 @@
 <c:if test="${max_page != null}">
     <div>
         <ul class="pagination justify-content-center">
+            <c:choose>
+                <c:when test="${offset == 0}">
+                    <li class="page-item"><a class="page-link" href="#" style="color: darkgray">Previous</a></li>
+                </c:when>
+                <c:otherwise>
+                    <li class="page-item"><a class="page-link"
+                                             href="/contract?action=${link}&&offset=${offset - 1}">Previous</a></li>
+                </c:otherwise>
+            </c:choose>
             <c:forEach begin="1" end="${max_page}" var="item">
                 <li class="page-item"><a class="page-link"
                                          href="/contract?action=${link}&&offset=${item-1}">${item}</a></li>
             </c:forEach>
+            <c:choose>
+                <c:when test="${offset == max_page - 1}">
+                    <li class="page-item"><a class="page-link" href="#" style="color: darkgray">Next</a></li>
+                </c:when>
+                <c:otherwise>
+                    <li class="page-item"><a class="page-link"
+                                             href="/contract?action=${link}&&offset=${offset  + 1}">Next</a></li>
+                </c:otherwise>
+            </c:choose>
         </ul>
     </div>
 </c:if>

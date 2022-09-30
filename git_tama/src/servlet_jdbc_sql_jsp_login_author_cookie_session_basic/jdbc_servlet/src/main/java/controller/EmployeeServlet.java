@@ -64,12 +64,6 @@ public class EmployeeServlet extends HttpServlet {
         updateEmployeeForm(request, response);
     }
 
-    private void deleteEmployee(HttpServletRequest request, HttpServletResponse response) {
-        int id = Integer.parseInt(request.getParameter("id"));
-        employeeService.removeById(id);
-        displayEmployee(request, response);
-    }
-
     private void insertEmployee(HttpServletRequest request, HttpServletResponse response) throws SQLException {
         Employee employee = CreateEmployee.createEmployee(request);
         Map<String, String> error = employeeService.save(employee);
@@ -81,6 +75,13 @@ public class EmployeeServlet extends HttpServlet {
         request.setAttribute("error", error);
         formCreateEmployee(request, response);
     }
+
+    private void deleteEmployee(HttpServletRequest request, HttpServletResponse response) {
+        int id = Integer.parseInt(request.getParameter("id"));
+        employeeService.removeById(id);
+        displayEmployee(request, response);
+    }
+
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = Optional.ofNullable(request.getParameter("action")).orElse("displayCustomer");
@@ -113,6 +114,7 @@ public class EmployeeServlet extends HttpServlet {
         request.setAttribute("employees", employees);
         request.setAttribute("link", link);
         request.setAttribute("max_page", max_page);
+        request.setAttribute("offset", offset);
         TypeOfEmployeeAddOn.transTypeOfEmployee(divisionService, educationService, positionService, request);
         try {
             request.getRequestDispatcher("views/employee/EmployeeList.jsp").forward(request, response);

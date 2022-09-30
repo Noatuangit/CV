@@ -189,6 +189,7 @@ public class ContractServlet extends HttpServlet {
         request.setAttribute("contracts", contracts);
         request.setAttribute("link", link);
         request.setAttribute("max_page", max_page);
+        request.setAttribute("offset", offset);
         DataAddOnContract.transDataAddOnContract(serviceAddOnITypeService, customerIBaseService, employeeIBaseService, serviceIBaseService, request);
         try {
             request.getRequestDispatcher("views/contract/ContractList.jsp").forward(request, response);
