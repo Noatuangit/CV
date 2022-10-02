@@ -53,21 +53,11 @@
                                             <p>Gender</p>
                                             <label>
                                                 <select class="select" name="gender">
-                                                    <c:choose>
-                                                        <c:when test="${customer.gender == 1}">
-                                                            <option value="1" selected>Male</option>
-                                                            <option value="0">Female</option>
-                                                        </c:when>
-                                                        <c:when test="${customer.gender == 0}">
-                                                            <option value="1">Male</option>
-                                                            <option value="0" selected>Female</option>
-                                                        </c:when>
-                                                        <c:otherwise>
-                                                            <option value="1">Male</option>
-                                                            <option value="0">Female</option>
-                                                        </c:otherwise>
-                                                    </c:choose>
-
+                                                    <c:forEach begin="0" end="1" varStatus="item">
+                                                        <option value="${(item.count - 1)}" ${customer.gender == (item.count - 1)? "selected": ""}>
+                                                            ${(item.count - 1) == 0 ? "Female" : "Male"}
+                                                        </option>
+                                                    </c:forEach>
                                                 </select>
                                             </label>
                                         </div>
@@ -76,7 +66,7 @@
                                             <div class="form-outline">
                                                 <input type="text" id="form3Examplev4" name="id_card"
                                                        placeholder="Id Card CT-xxxx number" value="${customer.id_card}"
-                                                       class="form-control form-control-lg" required />
+                                                       class="form-control form-control-lg" required/>
                                                 <label class="form-label" for="form3Examplev4">Id Card</label>
                                             </div>
                                             <c:if test="${error != null}">
@@ -99,18 +89,9 @@
                                                     <label class="form-label">Type Customer</label>
                                                     <select class="select" name="customer_type" required>
                                                         <c:forEach items="${listType}" var="item">
-                                                            <c:choose>
-                                                                <c:when test="${service.re == item.id}">
-                                                                    <option value="${item.id}" selected>
-                                                                      ${item.name}
-                                                                    </option>
-                                                                </c:when>
-                                                                <c:otherwise>
-                                                                    <option value="${item.id}">
-                                                                            ${item.name}
-                                                                    </option>
-                                                                </c:otherwise>
-                                                            </c:choose>
+                                                            <option value="${item.id}" ${customer.customer_type == item.id ? "selected" : ""}>
+                                                                    ${item.name}
+                                                            </option>
                                                         </c:forEach>
                                                     </select>
                                                 </label>
@@ -124,7 +105,8 @@
                                             <div class="col-md-5 mb-4 pb-2">
                                                 <div class="form-outline">
                                                     <input type="text" name="address" placeholder="Address" required
-                                                         value="${customer.address}"  class="form-control form-control-lg"/>
+                                                           value="${customer.address}"
+                                                           class="form-control form-control-lg"/>
                                                     <label style="color: black">Address</label>
                                                 </div>
                                             </div>
@@ -132,7 +114,7 @@
                                                 <div class="form-outline">
                                                     <input type="text" name="phone" placeholder="Phone Number"
                                                            value="${customer.phone}"
-                                                           class="form-control form-control-lg" required />
+                                                           class="form-control form-control-lg" required/>
                                                     <label style="color: black">Phone Number</label>
                                                     <c:if test="${error != null}">
                                                         <h3 style="color:red;">${error.get("phone")}</h3>

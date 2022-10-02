@@ -87,26 +87,13 @@
                                                     <label>
                                                         <select class="select" name="customers" required>
                                                             <c:forEach items="${customers}" var="item">
-                                                                <c:choose>
-                                                                    <c:when test="${contracts.customer_id == item.id}">
-                                                                        <option value="${item.id}" selected>
-                                                                            Name ${item.name}.
-                                                                            Id Card ${item.id_card}.
-                                                                            Email: ${item.email}.
-                                                                            Phone ${item.phone}.
-                                                                            Address ${item.address}
-                                                                        </option>
-                                                                    </c:when>
-                                                                    <c:otherwise>
-                                                                        <option value="${item.id}">
-                                                                            Name ${item.name}.
-                                                                            Id Card ${item.id_card}.
-                                                                            Email: ${item.email}.
-                                                                            Phone ${item.phone}.
-                                                                            Address ${item.address}
-                                                                        </option>
-                                                                    </c:otherwise>
-                                                                </c:choose>
+                                                                <option value="${item.id}" ${contracts.customer_id == item.id ? "selected" :""}>
+                                                                    Name ${item.name}.
+                                                                    Id Card ${item.id_card}.
+                                                                    Email: ${item.email}.
+                                                                    Phone ${item.phone}.
+                                                                    Address ${item.address}
+                                                                </option>
                                                             </c:forEach>
                                                         </select>
                                                     </label>
@@ -116,26 +103,13 @@
                                                     <label>
                                                         <select class="select" name="employees" required>
                                                             <c:forEach items="${employees}" var="item">
-                                                                <c:choose>
-                                                                    <c:when test="${contracts.employee_id == item.id}">
-                                                                        <option value="${item.id}" selected>
-                                                                            Name: ${item.name}.
-                                                                            Id Card: ${item.id_card}.
-                                                                            Email: ${item.email}.
-                                                                            Phone: ${item.phone}.
-                                                                            Address: ${item.address}
-                                                                        </option>
-                                                                    </c:when>
-                                                                    <c:otherwise>
-                                                                        <option value="${item.id}">
-                                                                            Name: ${item.name}.
-                                                                            Id Card: ${item.id_card}.
-                                                                            Email: ${item.email}.
-                                                                            Phone: ${item.phone}.
-                                                                            Address: ${item.address}
-                                                                        </option>
-                                                                    </c:otherwise>
-                                                                </c:choose>
+                                                                <option value="${item.id}"  ${contracts.employee_id == item.id?"selected" :""}>
+                                                                    Name: ${item.name}.
+                                                                    Id Card: ${item.id_card}.
+                                                                    Email: ${item.email}.
+                                                                    Phone: ${item.phone}.
+                                                                    Address: ${item.address}
+                                                                </option>
                                                             </c:forEach></select>
                                                     </label>
                                                 </div>
@@ -145,27 +119,12 @@
                                                         <select class="select" name="services" onchange="getModal()"
                                                                 required>
                                                             <c:forEach items="${services}" var="item">
-                                                                <c:choose>
-                                                                    <c:when test="${contracts.service_id == item.id}">
-                                                                        <option value="${item.id}" selected>
-                                                                            Name: ${item.name}.
-                                                                            Cost: ${item.cost}$.
-                                                                            Area to use: ${item.area}.
-                                                                            Max people: ${item.max_people}.
-                                                                        </option>
-                                                                    </c:when>
-                                                                    <c:otherwise>
-                                                                        <option value="${item.id}">
-                                                                            Name: ${item.name}.
-                                                                            Cost: ${item.cost}$.
-                                                                            Area to use: ${item.area}.
-                                                                            Max people: ${item.max_people}.
-                                                                            Floor: ${item.number_of_floors}.
-                                                                            Description: ${item.description_other_convenience}.
-                                                                            Standard room: ${item.standard_room}
-                                                                        </option>
-                                                                    </c:otherwise>
-                                                                </c:choose>
+                                                                <option value="${item.id}" ${contracts.service_id == item.id? "selected" : ""}>
+                                                                    Name: ${item.name}.
+                                                                    Cost: ${item.cost}$.
+                                                                    Area to use: ${item.area}.
+                                                                    Max people: ${item.max_people}.
+                                                                </option>
                                                             </c:forEach>
                                                         </select>
                                                     </label>

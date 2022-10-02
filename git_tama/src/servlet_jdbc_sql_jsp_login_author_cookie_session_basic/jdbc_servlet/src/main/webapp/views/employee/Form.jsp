@@ -83,64 +83,25 @@
                                     <div class="d-md-flex justify-content-start align-items-center mb-4 py-2">
                                         <h6 class="mb-0 me-4">Division </h6>
                                         <c:forEach items="${divisions}" var="item">
-                                            <c:choose>
-                                                <c:when test="${employee.division == item.id}">
-                                                    <div class="form-check form-check-inline mb-0 me-4">
-                                                        <input class="form-check-input" type="radio" name="divisions"
-                                                               value="${item.id}" checked/>
-                                                        <label class="form-check-label" >${item.name}</label>
-                                                    </div>
-                                                </c:when>
-                                                <c:otherwise>
-                                                    <div class="form-check form-check-inline mb-0 me-4">
-                                                        <input class="form-check-input" type="radio" name="divisions"
-                                                               value="${item.id}" />
-                                                        <label class="form-check-label">${item.name}</label>
-                                                    </div>
-                                                </c:otherwise>
-                                            </c:choose>
+                                            <input class="form-check-input" type="radio" name="divisions"
+                                                   value="${item.id}" ${employee.division == item.id ? "checked" : ""}/>
+                                            <label class="form-check-label" >${item.name}</label>
                                         </c:forEach>
                                     </div>
                                     <div class="d-md-flex justify-content-start align-items-center mb-4 py-2">
                                         <h6 class="mb-0 me-4">Education </h6>
                                         <c:forEach items="${educations}" var="item">
-                                            <c:choose>
-                                                <c:when test="${employee.education_degree == item.id}">
-                                                    <div class="form-check form-check-inline mb-0 me-4">
-                                                        <input class="form-check-input" type="radio" name="educations"
-                                                               value="${item.id}" checked/>
-                                                        <label class="form-check-label" >${item.name}</label>
-                                                    </div>
-                                                </c:when>
-                                                <c:otherwise>
-                                                    <div class="form-check form-check-inline mb-0 me-4">
-                                                        <input class="form-check-input" type="radio" name="educations"
-                                                               value="${item.id}" />
-                                                        <label class="form-check-label">${item.name}</label>
-                                                    </div>
-                                                </c:otherwise>
-                                            </c:choose>
+                                            <input class="form-check-input" type="radio" name="educations"
+                                                   value="${item.id}" ${employee.education_degree == item.id ? "checked" : ""}/>
+                                            <label class="form-check-label" >${item.name}</label>
                                         </c:forEach>
                                     </div>
                                     <div class="d-md-flex justify-content-start align-items-center mb-4 py-2">
                                         <h6 class="mb-0 me-4">Position </h6>
                                         <c:forEach items="${positions}" var="item">
-                                            <c:choose>
-                                                <c:when test="${employee.positions == item.id}">
-                                                    <div class="form-check form-check-inline mb-0 me-4">
-                                                        <input class="form-check-input" type="radio" name="positions"
-                                                               value="${item.id}" checked/>
-                                                        <label class="form-check-label" >${item.name}</label>
-                                                    </div>
-                                                </c:when>
-                                                <c:otherwise>
-                                                    <div class="form-check form-check-inline mb-0 me-4">
-                                                        <input class="form-check-input" type="radio" name="positions"
-                                                               value="${item.id}" />
-                                                        <label class="form-check-label">${item.name}</label>
-                                                    </div>
-                                                </c:otherwise>
-                                            </c:choose>
+                                            <input class="form-check-input" type="radio" name="positions"
+                                                   value="${item.id}" ${employee.positions == item.id ? "checked" : ""}/>
+                                            <label class="form-check-label" >${item.name}</label>
                                         </c:forEach>
                                     </div>
                                     <div class="form-outline mb-4">
