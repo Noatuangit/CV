@@ -52,7 +52,8 @@
                 </button>
             </a>
 
-            <button th:onclick=|showInfoDelete(${item.id})| type="button" class="btn btn-outline-danger"
+            <button th:onclick="showInfoDelete([[${item.id}]],[[${item.name}]])" type="button"
+                    class="btn btn-outline-danger"
                     data-bs-toggle="modal" data-bs-target="#delete">
                 <i class="fa-solid fa-eraser"></i>
             </button>
@@ -103,7 +104,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    Delete this ?
+                    Delete this <span id="nameDelete"></span>?
                     <input type="hidden" id="deleteId" name="id">
                 </div>
                 <div class="modal-footer">
@@ -115,7 +116,8 @@
     </div>
 </div>
 <script>
-    function showInfoDelete(id) {
+    function showInfoDelete(id, name) {
+        document.getElementById("nameDelete").innerText = name;
         document.getElementById("deleteId").value = id;
     }
 </script>

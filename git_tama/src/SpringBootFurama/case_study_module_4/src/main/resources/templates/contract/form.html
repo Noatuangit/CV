@@ -42,7 +42,8 @@
                                 <div class="form-outline mb-4">
                                     <input type="date" th:field="*{end_date}" id="form3Example5cdg"
                                            class="form-control form-control-lg"/>
-                                    <p style="color:red;" th:errors="*{end_date}"></p>
+                                    <p style="color:red;" th:if="${#fields.hasErrors('${contract}')}"
+                                       th:errors="${contract}"></p>
                                     <label class="form-label" for="form3Example5cdg">End Date</label>
                                 </div>
 

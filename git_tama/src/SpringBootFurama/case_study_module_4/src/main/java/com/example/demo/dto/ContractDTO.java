@@ -1,5 +1,6 @@
 package com.example.demo.dto;
 
+import com.example.demo.annotation_custom.ValidDifferenceDay;
 import com.example.demo.models.contract.Contract;
 import com.example.demo.utils.ConverterSetToStringHtml;
 import lombok.*;
@@ -12,10 +13,13 @@ import java.sql.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@ValidDifferenceDay(
+        field = "start_date",
+        fieldMatch = "end_date"
+)
 public class ContractDTO {
 
     Integer id;
-
 
     Date start_date;
 
