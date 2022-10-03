@@ -4,7 +4,6 @@ import org.springframework.beans.BeanWrapperImpl;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
-import java.sql.Date;
 import java.time.LocalDate;
 import java.time.YearMonth;
 import java.time.temporal.ChronoUnit;
@@ -22,6 +21,7 @@ public class ValidDayInDayOut implements ConstraintValidator<ValidDifferenceDay,
 
     @Override
     public boolean isValid(Object value, ConstraintValidatorContext context) {
+
         Object fieldValue = new BeanWrapperImpl(value)
                 .getPropertyValue(field);
         Object fieldMatchValue = new BeanWrapperImpl(value)

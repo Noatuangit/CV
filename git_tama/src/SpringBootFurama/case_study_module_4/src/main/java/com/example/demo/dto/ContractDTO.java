@@ -1,5 +1,6 @@
 package com.example.demo.dto;
 
+import com.example.demo.annotation_custom.DayMustBiggerNow;
 import com.example.demo.annotation_custom.ValidDifferenceDay;
 import com.example.demo.models.contract.Contract;
 import com.example.demo.utils.ConverterSetToStringHtml;
@@ -21,6 +22,7 @@ public class ContractDTO {
 
     Integer id;
 
+    @DayMustBiggerNow
     Date start_date;
 
     Date end_date;

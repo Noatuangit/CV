@@ -29,7 +29,7 @@
                             <form th:object="${contract}" method="post" th:action="@{/contract/update}">
                                 <div class="form-outline mb-4">
                                     <input type="hidden" th:field="*{id}" id="form3Example1cg"
-                                           class="form-control form-control-lg" required/>
+                                           class="form-control form-control-lg"/>
                                 </div>
 
                                 <div class="form-outline mb-4">
@@ -41,7 +41,7 @@
 
                                 <div class="form-outline mb-4">
                                     <input type="date" th:field="*{end_date}" id="form3Example5cdg"
-                                           class="form-control form-control-lg"/>
+                                           class="form-control form-control-lg" required/>
                                     <p style="color:red;" th:if="${#fields.hasErrors('${contract}')}"
                                        th:errors="${contract}"></p>
                                     <label class="form-label" for="form3Example5cdg">End Date</label>

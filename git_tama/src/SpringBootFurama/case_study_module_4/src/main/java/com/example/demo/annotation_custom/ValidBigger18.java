@@ -10,6 +10,7 @@ public class ValidBigger18 implements ConstraintValidator<ValidDayBirthBigger18,
 
     @Override
     public boolean isValid(String value, ConstraintValidatorContext context) {
+        if (value.isEmpty()) return false;
         return ChronoUnit.YEARS.between(YearMonth.from(LocalDate.parse(value)), YearMonth.from(LocalDate.now())) > 18;
     }
 }
