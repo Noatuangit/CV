@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="eu">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+            integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+            integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+            crossorigin="anonymous"></script>
+
+    <title>Title</title>
+    <script src="../static/controlJs.js"></script>
+</head>
+<body>
+<div style="text-align: center">
+    <h1>Enter a quantity and click the "ADD" to put this in your cart</h1>
+    <table class="table table-striped">
+        <tr>
+            <td>No</td>
+            <td>Avatar</td>
+            <td>Name</td>
+            <td>Quantity available</td>
+            <td>Price</td>
+            <td>Amount</td>
+        </tr>
+        <tr th:each="item,state: ${listProduct}">
+            <td th:text="${state.count}"></td>
+            <td>
+                <img th:src="@{'/img/fish/'+ ${item.avatar}}" style="width: 100px">
+            </td>
+            <td th:text="${item.name}"></td>
+            <td th:text="${item.quantity}"></td>
+            <td th:text="${item.price}"></td>
+            <td>
+                <label>
+                    <input type="number" name="amount" min="1" th:id="amount + ${item.id}">
+                </label>
+                <label>
+                    <input type="hidden" name="price" th:value="${item.price}" th:id="price + ${item.id}">
+                </label>
+                <label>
+                    <input type="hidden" name="price" th:value="${item.name}" th:id="name + ${item.id}">
+                </label>
+                <button class="btn btn-second" th:id="product + ${item.id}">
+                    Add Product
+                </button>
+            </td>
+        </tr>
+    </table>
+</div>
+<div style="width: 40%; text-align: center; float: left; display: none" id="cart">
+    <img src="/img/icon/cart.png" style="width: 100px">
+    <div>
+        <table class="table table-dark">
+            <tr>
+                <td>No</td>
+                <td>Name</td>
+                <td>Quantity</td>
+                <td>Price</td>
+            </tr>
+            <tbody id="body">
+
+            </tbody>
+        </table>
+    </div>
+    <p>Total : <span id="total"></span></p>
+</div>
+<div style="float: right; text-align: center; position: relative;right: 10%">
+    <table class="table table-hover">
+        <tr>
+            <td>Name</td>
+            <td><input type="text" id="nameLogin"></td>
+        </tr>
+        <tr>
+            <td>email</td>
+            <td><input type="email" id="emailLogin"></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button id="buyIt" class="btn btn-success">login and buy all !</button>
+            </td>
+        </tr>
+    </table>
+
+</div>
+
+<!--    modal buy something-->
+<div class="modal fade" id="buySomething" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Response Message</h5>
+            </div>
+            <div class="modal-body" id="info">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script th:src="@{/controlJs.js}">
+
+</script>
+</body>
+</html>
