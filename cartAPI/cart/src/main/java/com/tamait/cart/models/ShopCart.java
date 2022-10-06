@@ -18,7 +18,7 @@ public class ShopCart {
     private Integer id;
 
     @ManyToOne
-    @JoinColumn(name = "oders_id")
+    @JoinColumn(name = "orders_id", nullable = false, referencedColumnName = "id")
     private Order orders;
 
     @ManyToOne
@@ -28,12 +28,5 @@ public class ShopCart {
     Integer quantity;
 
     Integer money;
-
-    public ShopCart(Order order, Integer product, Integer quantity, Integer money) {
-        this.orders = order;
-        this.product = new Product(product);
-        this.quantity = quantity;
-        this.money = money;
-    }
 
 }

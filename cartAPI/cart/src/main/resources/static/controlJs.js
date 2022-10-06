@@ -31,7 +31,8 @@ function loginAndBuyIt() {
             saveCartInCustomer(order);
         },
         error: function () {
-            console.log("Not Found");
+            document.getElementById("info").innerText = "Not Found!!!";
+            $('#doSomething').modal('show');
         }
     })
 }
@@ -52,7 +53,7 @@ function saveCartInCustomer(order) {
         data: JSON.stringify(dataObj),
         success: function () {
             document.getElementById("info").innerText = "Buy Success";
-            $('#buySomething').modal('show');
+            $('#doSomething').modal('show');
             listCart.length = 0;
             document.getElementById("cart").style.display = "none";
         },
@@ -72,7 +73,7 @@ function addListCart(id) {
     const nameProduct = $(idName).val();
     if (amountBook === "") {
         document.getElementById("info").innerText = "Buy Something";
-        $('#buySomething').modal('show');
+        $('#doSomething').modal('show');
         return;
     }
     document.getElementById("cart").style.display = "block";

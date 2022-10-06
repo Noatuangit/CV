@@ -18,9 +18,9 @@ public interface IOrderRepository extends JpaRepository<Order, Integer> {
 
     @Modifying
     @Transactional
-    @Query(value = "insert into oders (customer_id) values (:id)", nativeQuery = true)
+    @Query(value = "insert into orders (customer_id) values (:id)", nativeQuery = true)
     void saveByIdCustomer(@Param("id") Integer id);
 
-    @Query(value ="SELECT * FROM oders ORDER BY id DESC limit 1", nativeQuery = true)
+    @Query(value ="SELECT * FROM orders ORDER BY id DESC limit 1", nativeQuery = true)
     Optional<Order> findByLast();
 }

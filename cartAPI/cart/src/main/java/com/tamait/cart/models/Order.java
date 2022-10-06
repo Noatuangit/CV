@@ -3,10 +3,11 @@ package com.tamait.cart.models;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.List;
 
 @Entity
-@Table(name = "oders")
+@Table(name = "orders")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -21,9 +22,8 @@ public class Order {
     @JoinColumn(name = "customer_id", nullable = false, referencedColumnName = "id")
     Customer customer;
 
-    @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL,targetEntity = ShopCart.class)
-    @JoinColumn(name="oders_id")
-    List<ShopCart> shopCartList;
+    @OneToMany(mappedBy = "orders", fetch = FetchType.EAGER, cascade = CascadeType.ALL, targetEntity = ShopCart.class)
+    Collection<ShopCart> shopCartList;
 
     public Order(Integer orderId) {
         this.id = orderId;
