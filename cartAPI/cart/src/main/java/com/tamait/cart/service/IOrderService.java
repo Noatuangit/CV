@@ -9,6 +9,8 @@ public interface IOrderService {
     Iterable<Order> findAll();
 
     Optional<Order> findById(Integer id);
+
     Optional<Order> findByLast();
+
     void createOrder(Customer customer);
 }

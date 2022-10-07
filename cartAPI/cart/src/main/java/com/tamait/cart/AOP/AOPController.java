@@ -48,10 +48,10 @@ public class AOPController {
 
     @AfterReturning("execution(* com.tamait.cart.service.impl.CartService.save(..)) && args(list)")
     public void logBuyingOfCustomer(List<ShopCart> list) {
-        Integer idOrder = list.get(0).getOrders().getId();
-        Customer customer = iOrderService.findById(idOrder).get().getCustomer();
+        Customer customer = iOrderService.findByLast().get().getCustomer();
+        Integer idOrder = iOrderService.findByLast().get().getId();
         for (ShopCart cart : list) {
-            dtoService.save(new OrderDTO(cart.getOrders().getId(), cart.getProduct().getId(), customer.getId()));
+            dtoService.save(new OrderDTO(idOrder,cart.getProduct().getId(), customer.getId()));
         }
     }
 }

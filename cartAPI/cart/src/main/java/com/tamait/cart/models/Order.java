@@ -22,7 +22,8 @@ public class Order {
     @JoinColumn(name = "customer_id", nullable = false, referencedColumnName = "id")
     Customer customer;
 
-    @OneToMany(mappedBy = "orders", fetch = FetchType.EAGER, cascade = CascadeType.ALL, targetEntity = ShopCart.class)
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, targetEntity = ShopCart.class)
+            @JoinColumn(name = "orders_id")
     Collection<ShopCart> shopCartList;
 
     public Order(Integer orderId) {

@@ -23,8 +23,7 @@ public class CartService implements ICartService {
     public void save(List<ShopCart> list) {
         Integer idOrder = service.findByLast().get().getId();
         for (ShopCart shopCart : list) {
-            shopCart.setOrders(new Order(idOrder));
-            repository.save(shopCart);
+            repository.save(idOrder, shopCart.getProduct().getId(), shopCart.getQuantity(), shopCart.getMoney());
         }
     }
 }

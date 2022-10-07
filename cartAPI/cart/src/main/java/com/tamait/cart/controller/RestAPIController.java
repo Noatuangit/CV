@@ -36,36 +36,36 @@ public class RestAPIController {
     @Autowired
     ICartService cartService;
 
-//    @GetMapping("/listCustomer")
-//    public ResponseEntity<Iterable<Customer>> findAllCustomer() {
-//        return new ResponseEntity<>(customerService.findAll(), HttpStatus.OK);
-//    }
-//
-//    @GetMapping("/listProduct")
-//    public ResponseEntity<Iterable<Product>> findAllProduct() {
-//        return new ResponseEntity<>(productService.findAll(), HttpStatus.OK);
-//    }
-//
-//    @GetMapping("/listOrder")
-//    public ResponseEntity<Iterable<Order>> findAllOrder() {
-//        return new ResponseEntity<>(orderService.findAll(), HttpStatus.OK);
-//    }
-//
-//    @GetMapping("/listOrderDTO")
-//    public ResponseEntity<Iterable<OrderDTO>> findAllOrderDTO() {
-//        return new ResponseEntity<>(orderDtoService.findAll(), HttpStatus.OK);
-//    }
-//
-//    @GetMapping("/listOrder/{id}")
-//    public ResponseEntity<Optional<Order>> findAllOrderDTO(@PathVariable Integer id) {
-//        return new ResponseEntity<>(orderService.findById(id), HttpStatus.OK);
-//    }
-//
-//    @GetMapping("/customerOrder/{id}")
-//    public ResponseEntity<Customer> findCustomerById(@PathVariable Integer id) {
-//        Optional<Customer> customer = customerService.findById(id);
-//        return customer.map(x -> new ResponseEntity<>(x, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
-//    }
+    @GetMapping("/listCustomer")
+    public ResponseEntity<Iterable<Customer>> findAllCustomer() {
+        return new ResponseEntity<>(customerService.findAll(), HttpStatus.OK);
+    }
+
+    @GetMapping("/listProduct")
+    public ResponseEntity<Iterable<Product>> findAllProduct() {
+        return new ResponseEntity<>(productService.findAll(), HttpStatus.OK);
+    }
+
+    @GetMapping("/listOrder")
+    public ResponseEntity<Iterable<Order>> findAllOrder() {
+        return new ResponseEntity<>(orderService.findAll(), HttpStatus.OK);
+    }
+
+    @GetMapping("/listOrderDTO")
+    public ResponseEntity<Iterable<OrderDTO>> findAllOrderDTO() {
+        return new ResponseEntity<>(orderDtoService.findAll(), HttpStatus.OK);
+    }
+
+    @GetMapping("/listOrder/{id}")
+    public ResponseEntity<Optional<Order>> findAllOrderDTO(@PathVariable Integer id) {
+        return new ResponseEntity<>(orderService.findById(id), HttpStatus.OK);
+    }
+
+    @GetMapping("/customerOrder/{id}")
+    public ResponseEntity<Customer> findCustomerById(@PathVariable Integer id) {
+        Optional<Customer> customer = customerService.findById(id);
+        return customer.map(x -> new ResponseEntity<>(x, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
 
     @PostMapping("/getCustomer")
     public ResponseEntity<Order> login(@RequestBody Customer customer) {

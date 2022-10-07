@@ -18,10 +18,6 @@ public class ShopCart {
     private Integer id;
 
     @ManyToOne
-    @JoinColumn(name = "orders_id", nullable = false, referencedColumnName = "id")
-    private Order orders;
-
-    @ManyToOne
     @JoinColumn(name = "product_id")
     Product product;
 
