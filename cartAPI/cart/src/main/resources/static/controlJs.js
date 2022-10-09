@@ -43,6 +43,8 @@ function saveCartInCustomer(order) {
         data: converterToJsonOfCart(listCart)
     }
 
+    console.log(JSON.stringify(dataObj));
+
     $.ajax({
         headers: {
             'Accept': 'application/json',

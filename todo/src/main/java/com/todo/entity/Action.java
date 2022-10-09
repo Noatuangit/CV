@@ -1,4 +1,4 @@
-package com.todo.models;
+package com.todo.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 @Entity
@@ -14,14 +16,21 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 @Getter
 @Setter
-public class Action {
+public class Action implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "time_begin",columnDefinition = "DATETIME DEFAULT CURRENT_TIMESTAMP")
-    private Timestamp time_begin;
+    private Timestamp timeBegin;
 
-    @Column(name = "time_finish")
-    private Timestamp time_finish;
+    String title;
+
+
+    String content;
+
+    @Column(name = "status",columnDefinition = "VARCHAR(50) DEFAULT 'incomplete'")
+    String status;
+
+
 }

@@ -75,6 +75,13 @@ public class RestAPIController {
 
     @PostMapping("/saveOrder")
     public HttpStatus saveOrder(@RequestBody Map<String, Object> data, ObjectMapper objectMapper) throws JsonProcessingException {
+
+
+//        List<ShopCart> s = new ArrayList<>();
+//
+//        List<Product> map = (List) data.get("data");
+
+
         Object dataObj = data.get("data");
         String json = objectMapper.writeValueAsString(dataObj);
         List<ShopCart> products = getDataAsList(json, ShopCart.class);
