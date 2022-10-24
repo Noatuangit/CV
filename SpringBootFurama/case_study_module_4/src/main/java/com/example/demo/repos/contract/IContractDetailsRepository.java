@@ -1,4 +1,4 @@
-package com.example.demo.repository.contract;
+package com.example.demo.repos.contract;
 
 import com.example.demo.models.contract.ContractDetails;
 import org.springframework.data.jpa.repository.JpaRepository;

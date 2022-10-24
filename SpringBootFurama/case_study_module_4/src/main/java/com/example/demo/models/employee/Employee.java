@@ -3,6 +3,7 @@ package com.example.demo.models.employee;
 import com.example.demo.dto.CustomerDTO;
 import com.example.demo.dto.EmployeeDTO;
 import com.example.demo.models.customer.CustomerType;
+import com.example.demo.models.employee.roles.EmployeeAccount;
 import javafx.geometry.Pos;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -55,6 +56,10 @@ public class Employee {
     @ManyToOne
     @JoinColumn(name = "division_id")
     Division division;
+
+    @ManyToOne
+    @JoinColumn(name = "username")
+    EmployeeAccount employeeAccount;
 
     @Column(name = "status")
     String status;

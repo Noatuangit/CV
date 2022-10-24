@@ -1,6 +1,5 @@
 package com.example.demo.utils;
 
-import com.example.demo.models.contract.Contract;
 import com.example.demo.models.contract.ContractDetails;
 
 import java.util.Set;

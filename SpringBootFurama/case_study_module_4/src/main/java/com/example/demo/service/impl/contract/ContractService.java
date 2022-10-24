@@ -1,7 +1,7 @@
 package com.example.demo.service.impl.contract;
 
 import com.example.demo.models.contract.Contract;
-import com.example.demo.repository.contract.IContractRepository;
+import com.example.demo.repos.contract.IContractRepository;
 import com.example.demo.service.interface_business.IContractService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

@@ -1,7 +1,7 @@
 package com.example.demo.service.impl.main_service;
 
 import com.example.demo.models.main_service.MainService;
-import com.example.demo.repository.main_service.IMainServiceRepository;
+import com.example.demo.repos.main_service.IMainServiceRepository;
 import com.example.demo.service.interface_business.IMainService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

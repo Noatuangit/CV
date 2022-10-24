@@ -22,6 +22,7 @@ public class TaskAOP {
         List<Action> list = service.findAllByTimeBeginBeforeAndStatusIsContaining(Timestamp.valueOf(LocalDateTime.now().plusDays(-1)), "incomplete");
         list.forEach(x -> {
             x.setStatus("cancel");
+            x.setTimeFinish(Timestamp.valueOf(LocalDateTime.now()));
             service.save(x);
         });
     }

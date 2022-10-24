@@ -1,4 +1,4 @@
-package com.example.demo.repository.contract;
+package com.example.demo.repos.contract;
 
 import com.example.demo.models.contract.Contract;
 import org.springframework.data.domain.Page;
@@ -24,6 +24,6 @@ public interface IContractRepository extends JpaRepository<Contract, Integer> {
 
     @Modifying
     @Transactional
-    @Query(value = "update contract set total_money = total_money_service(?1) where id = ?1", nativeQuery = true)
+    @Query(value = "update contract set total_money = total_money_service(:id) where id = :id", nativeQuery = true)
     void updateMoneyById(@Param("id") Integer id);
 }

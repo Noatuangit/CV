@@ -1,7 +1,7 @@
 package com.example.demo.service.impl.employee;
 
 import com.example.demo.models.employee.Employee;
-import com.example.demo.repository.employee.IEmployeeRepository;
+import com.example.demo.repos.employee.IEmployeeRepository;
 import com.example.demo.service.interface_business.IEmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -37,6 +37,10 @@ public class EmployeeService implements IEmployeeService {
 
     @Override
     public void updateMoneyById(Integer id) {
+    }
 
+    @Override
+    public Optional<Employee> findAllByUsername(String username) {
+        return repository.findAllByUsername(username);
     }
 }

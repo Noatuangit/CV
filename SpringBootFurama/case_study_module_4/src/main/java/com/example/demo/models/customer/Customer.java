@@ -23,6 +23,8 @@ public class Customer {
     @JoinColumn(name = "type_customer_id", nullable = false, referencedColumnName = "id")
     CustomerType customerType;
 
+//    Integer type_customer_id;
+
     @Column(name = "name")
     String name;
 

@@ -1,6 +1,5 @@
-package com.example.demo.repository.main_service;
+package com.example.demo.repos.main_service;
 
-import com.example.demo.models.employee.Employee;
 import com.example.demo.models.main_service.MainService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

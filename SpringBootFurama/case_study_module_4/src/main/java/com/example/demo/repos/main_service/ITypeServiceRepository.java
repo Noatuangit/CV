@@ -1,4 +1,4 @@
-package com.example.demo.repository.main_service;
+package com.example.demo.repos.main_service;
 
 import com.example.demo.models.main_service.ServiceType;
 import org.springframework.data.jpa.repository.JpaRepository;

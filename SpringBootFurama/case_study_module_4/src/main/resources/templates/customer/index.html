@@ -36,7 +36,7 @@
         <td th:utext="${item.name}"></td>
         <td th:utext="${item.customerType.name}"></td>
         <td th:utext="${#dates.format(item.birthday, 'dd/MM/yyyy')}"></td>
-        <td th:utext="${item.id_card}"></td>
+            <td th:utext="${item.id_card}"></td>
         <td th:utext="${item.gender} ? 'Male' : 'Female'"></td>
         <td th:utext="${item.phone}"></td>
         <td th:utext="${item.email}"></td>

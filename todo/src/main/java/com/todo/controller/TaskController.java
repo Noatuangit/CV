@@ -25,6 +25,11 @@ public class TaskController {
         return new ResponseEntity<>(service.findAllByTimeBeginAfterAndStatusIsContaining(timestamp, "incomplete"), HttpStatus.OK);
     }
 
+    @GetMapping("/lists")
+    public ResponseEntity<Iterable<Action>> findAll() {
+        return new ResponseEntity<>(service.findAll(), HttpStatus.OK);
+    }
+
     @PostMapping("")
     public ResponseEntity<Iterable<Action>> saveEntity(@Valid @RequestBody ActionDAO actionDAO) {
         service.save(actionDAO);

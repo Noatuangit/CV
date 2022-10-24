@@ -1,4 +1,4 @@
-package com.example.demo.repository.customer;
+package com.example.demo.repos.customer;
 
 import com.example.demo.models.customer.Customer;
 import org.springframework.data.domain.Page;
@@ -15,8 +15,8 @@ import java.util.List;
 @Repository
 public interface ICustomerRepository extends JpaRepository<Customer, Integer> {
     @Query(value = "select * from customer where status = 'on' and name like concat('%',:name,'%')",
-            nativeQuery = true,
-            countQuery = "select count(*) from (select * from customer where name like concat('%',:name,'%') and status = 'on') customer")
+    nativeQuery = true,
+    countQuery = "select count(*) from (select * from customer where name like concat('%',:name,'%') and status = 'on') customer")
     Page<Customer> findAllByName(@Param("name") String name_search, Pageable pageable);
 
     @Query(value = "select c from Customer c where c.status = 'on'")

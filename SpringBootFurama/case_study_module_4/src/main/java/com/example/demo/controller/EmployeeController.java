@@ -1,12 +1,14 @@
 package com.example.demo.controller;
 
 import com.example.demo.dto.EmployeeDTO;
+import com.example.demo.error.exception.NotPermission;
 import com.example.demo.models.employee.Division;
 import com.example.demo.models.employee.EducationDegree;
 import com.example.demo.models.employee.Employee;
 import com.example.demo.models.employee.Position;
 import com.example.demo.service.ITypeService;
 import com.example.demo.service.interface_business.IEmployeeService;
+import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -17,7 +19,12 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -36,7 +43,7 @@ public class EmployeeController {
 
     @Autowired
     ITypeService<Position> positionService;
-
+    List<String> list = new ArrayList<>(Arrays.asList("President", "Manager"));
     @RequestMapping("")
     public String goHomePage(Model model, @RequestParam(defaultValue = "") String name_search,
                              @PageableDefault(size = MAX_DISPLAY, sort = "name", direction = Sort.Direction.ASC)
@@ -47,6 +54,7 @@ public class EmployeeController {
     }
 
 
+    @SneakyThrows
     @RequestMapping("/create")
     public String createEmployee(Model model) {
         model.addAttribute("employee", new EmployeeDTO());

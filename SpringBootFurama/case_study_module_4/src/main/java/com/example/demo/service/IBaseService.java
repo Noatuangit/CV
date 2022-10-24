@@ -16,4 +16,5 @@ public interface IBaseService<E> {
     void updateById(Integer id_delete);
 
     void updateMoneyById( Integer id);
+
 }

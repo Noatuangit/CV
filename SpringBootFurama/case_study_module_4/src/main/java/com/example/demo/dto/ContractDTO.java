@@ -6,6 +6,7 @@ import com.example.demo.models.contract.Contract;
 import com.example.demo.utils.ConverterSetToStringHtml;
 import lombok.*;
 
+import javax.validation.constraints.FutureOrPresent;
 import javax.validation.constraints.Min;
 import java.sql.Date;
 
@@ -22,7 +23,8 @@ public class ContractDTO {
 
     Integer id;
 
-    @DayMustBiggerNow
+//    @DayMustBiggerNow
+    @FutureOrPresent
     Date start_date;
 
     Date end_date;

@@ -1,7 +1,7 @@
 package com.example.demo.service.impl.contract;
 
 import com.example.demo.models.contract.AttachService;
-import com.example.demo.repository.contract.IAttachServiceRepository;
+import com.example.demo.repos.contract.IAttachServiceRepository;
 import com.example.demo.service.interface_business.IServiceAttachService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

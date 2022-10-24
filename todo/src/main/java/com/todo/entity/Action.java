@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
@@ -23,6 +22,9 @@ public class Action implements Serializable {
 
     @Column(name = "time_begin",columnDefinition = "DATETIME DEFAULT CURRENT_TIMESTAMP")
     private Timestamp timeBegin;
+
+    @Column(name = "time_finish",columnDefinition = "DATETIME")
+    private Timestamp timeFinish;
 
     String title;
 

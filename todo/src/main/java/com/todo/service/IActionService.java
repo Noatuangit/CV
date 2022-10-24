@@ -15,4 +15,6 @@ public interface IActionService {
     List<Action> findAllByTimeBeginBeforeAndStatusIsContaining(Timestamp localDateTime, String status);
 
     void updateById(Long id,String status);
+
+    List<Action> findAll();
 }
