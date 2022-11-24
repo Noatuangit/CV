@@ -43,7 +43,7 @@ public class HomeController {
         response.addCookie(username);
         response.addCookie(roles);
         model.addAttribute("username", employee.get().getName());
-        return "home";
+        return "redirect:/";
     }
 
     @PostMapping("/logout")
@@ -52,6 +52,6 @@ public class HomeController {
             x.setMaxAge(0);
             response.addCookie(x);
         });
-        return "home";
+        return "redirect:/";
     }
 }

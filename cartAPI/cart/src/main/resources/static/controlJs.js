@@ -110,10 +110,10 @@ function converterToJsonOfCart(list) {
     const data = [];
     for (let i = 0; i < list.length; i++) {
         const current = {
-
-            product: list[i].product.id,
-            quantity: list[i].quantity,
-            money: list[i].money,
+            // "product": list[i].product.id,
+            "product": list[i].product,
+            "quantity": list[i].quantity,
+            "money": list[i].money,
         }
         data.push(current);
     }

@@ -59,7 +59,7 @@ public class ContractController {
     public String update(@Valid @ModelAttribute("contract") ContractDTO contract, BindingResult result, Model model, RedirectAttributes attributes) {
         if (result.hasErrors()) {
             transferDataAddOnContract(model);
-            return "contract/form";
+                return "contract/form";
         }
         contractService.save(new Contract(contract));
         attributes.addFlashAttribute("message", "Create Success!!!");

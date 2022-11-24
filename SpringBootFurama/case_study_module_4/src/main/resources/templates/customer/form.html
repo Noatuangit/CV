@@ -86,14 +86,20 @@
 
                                 <div class="form-outline mb-4">
                                     <label class="form-label" for="form3Example9cdg">Gender</label>
-                                    <th:block th:if="${customer.gender}">
-                                        <input type="radio" th:field="*{gender}" value="1" th:text="Male" checked>
-                                        <input type="radio" th:field="*{gender}" value="0" th:text="Female">
-                                    </th:block>
-                                    <th:block th:unless="${customer.gender}">
-                                        <input type="radio" th:field="*{gender}" value="1" th:text="Male">
-                                        <input type="radio" th:field="*{gender}" value="0" th:text="Female" checked>
-                                    </th:block>
+<!--                                    <th:block th:if="${customer.gender}">-->
+<!--                                        <input type="radio" th:field="*{gender}" value="1" th:text="Male" checked>-->
+<!--                                        <input type="radio" th:field="*{gender}" value="0" th:text="Female">-->
+<!--                                    </th:block>-->
+<!--                                    <th:block th:unless="${customer.gender}">-->
+<!--                                        <input type="radio" th:field="*{gender}" value="1" th:text="Male">-->
+<!--                                        <input type="radio" th:field="*{gender}" value="0" th:text="Female" checked>-->
+<!--                                    </th:block>-->
+                                    <input type="radio" th:field="*{gender}" value="0" th:text="Male"
+                                           th:checked="${customer.gender == 0}">
+                                    <input type="radio" th:field="*{gender}" value="1" th:text="Female"
+                                           th:checked="${customer.gender == 1}">
+<!--                                    <input type="radio" th:field="*{gender}" value="2" th:text="Other"-->
+<!--                                           th:checked="${customer.gender == 2}">-->
                                 </div>
 
                                 <div class="d-flex justify-content-center">

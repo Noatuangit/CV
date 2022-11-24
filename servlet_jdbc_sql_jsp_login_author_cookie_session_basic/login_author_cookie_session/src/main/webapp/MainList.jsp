@@ -78,9 +78,9 @@
     <div class="mainContainer">
         <% List<Fish> list = (List<Fish>) request.getAttribute("list");%>
         <c:forEach items="<%=list%>" var="item">
-            <div class="item"><a class="page-link" href="/mainServlet?action=infoFish&&id=${item.id}"><img
-                    src="${item.avatar}" alt="please wait ...">${item.name} type ${item.type}</a>
-            </div>
+                <div class="item"><a class="page-link" href="/mainServlet?action=infoFish&&id=${item.id}"><img
+                        src="${item.avatar}" alt="please wait ...">${item.name} type ${item.type}</a>
+                </div>
         </c:forEach>
     </div>
 </div>

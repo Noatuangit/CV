@@ -13,10 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 @RestController
 @RequestMapping("/api")
@@ -80,11 +77,12 @@ public class RestAPIController {
 //        List<ShopCart> s = new ArrayList<>();
 //
 //        List<Product> map = (List) data.get("data");
-
-
+//        String strJson = data.get("data").toString();
+//
         Object dataObj = data.get("data");
         String json = objectMapper.writeValueAsString(dataObj);
         List<ShopCart> products = getDataAsList(json, ShopCart.class);
+//        List<ShopCart> list = Arrays.asList(objectMapper.readValue(json, ShopCart[].class));
         cartService.save(products);
         return HttpStatus.OK;
     }
