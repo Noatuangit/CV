@@ -28,7 +28,7 @@ public class HandleError {
 
     @ExceptionHandler({NotFoundEntityById.class, EmptyListPeople.class})
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    public Map<String, String> notFoundHandle(NotFoundEntityById exception) {
+    public Map<String, String> notFoundHandle(Exception exception) {
         Map<String, String> errors = new HashMap<>();
         errors.put("messageError", exception.getMessage());
         return errors;
