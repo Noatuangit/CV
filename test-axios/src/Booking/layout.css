@@ -1,0 +1,41 @@
+.main {
+	margin-top: 10px;
+	display: flex;
+	flex-direction: row;
+}
+
+.wrap-item {
+	width: 10%;
+	margin: 5px 5px;
+}
+
+.wrap-item-center {
+	width: 90%;
+	margin: 5px 5px;
+}
+
+.wrap-item-center form input {
+	margin-right: 10px;
+}
+
+table tr td a {
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.errorPage {
+	display: flex;
+	justify-content: center;
+	text-align: center;
+}
+
+.current {
+	background-color: #0dcaf0 !important;
+	color: white !important;
+}
+
+@media (min-width: 1025px) {
+	.h-custom {
+	height: 100vh !important;
+	}
+	}
