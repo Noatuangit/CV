@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "author": "bai tap authur",
+        "category": "tiểu thuyết",
+        "title": "bai tap test",
+        "year": "1992"
+    },
+    {
+        "id": 2,
+        "author": "tuanLN",
+        "category": "trinh thám",
+        "title": "bai tap test",
+        "year": "1990"
+    },
+    {
+        "id": 3,
+        "author": "test author",
+        "category": "truyện kí",
+        "title": "bai tap",
+        "year": "2000"
+    }
+]

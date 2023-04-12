@@ -1,23 +1,15 @@
 package com.example.demo.controller;
 
-import com.example.demo.dto.EmployeeDTO;
 import com.example.demo.models.contract.AttachService;
 import com.example.demo.models.contract.ContractDetails;
-import com.example.demo.models.employee.Employee;
-import com.example.demo.models.employee.roles.EmployeeAccount;
 import com.example.demo.models.main_service.MainService;
 import com.example.demo.service.interface_business.*;
-import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.util.Optional;
-import java.util.stream.Stream;
 
 @RestController
 @RequestMapping("/contractRest")

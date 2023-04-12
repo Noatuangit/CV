@@ -1,0 +1,32 @@
+
+]
+java:S1192f"GDefine a constant instead of duplicating this literal "offset" 3 times.(î’˜Ë
+f
+java:S1192H"PDefine a constant instead of duplicating this literal "displayCustomer" 3 times.(€¿ü·
+v
+java:S1192m"`Define a constant instead of duplicating this literal "views/customer/CustomerList.jsp" 3 times.(ƒĞä—
+`
+java:S1192i"JDefine a constant instead of duplicating this literal "customers" 3 times.(şå¤
+f	java:S117h"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¨Æß
+f	java:S117w"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(üÁ­Ô
+l	java:S117„"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(«¥Şªÿÿÿÿÿ
+f
+java:S1301""KReplace this "switch" statement by "if" statements to increase readability.(ë´åİşÿÿÿÿ
+P
+java:S1161 ":Add the "@Override" annotation above this method signature(‹¨¯¿
+<	java:S131"""Add a default case to this switch.(ë´åİşÿÿÿÿ
+‘
+java:S1989$"vHandle the following exceptions that could be thrown by "insertCustomer": SQLException, ServletException, IOException.(Š¼†Ìøÿÿÿÿ
+q
+java:S1989("VHandle the following exception that could be thrown by "updateCustomer": SQLException.(İ¢¢çÿÿÿÿÿ
+Œ
+java:S1130;"wRemove the declaration of thrown exception 'javax.servlet.ServletException', as it cannot be thrown from method's body.(Šå£-
+
+java:S1130;"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(Šå£-
+U
+java:S1161G":Add the "@Override" annotation above this method signature(Ïû©Öûÿÿÿÿ
+<	java:S131I""Add a default case to this switch.(ë´åİşÿÿÿÿ
+m
+java:S2226"XRemove this misleading mutable servlet instance field or make it "static" and/or "final"(ÂéîU
+s
+java:S2226"XRemove this misleading mutable servlet instance field or make it "static" and/or "final"(Ë·„œÿÿÿÿÿ

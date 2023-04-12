@@ -1,9 +1,6 @@
 package utils;
 
-import models.person.Customer;
-import models.person.Employee;
 
-import javax.servlet.http.HttpServletRequest;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;

@@ -1,0 +1,39 @@
+
+a
+java:S1192M"KDefine a constant instead of duplicating this literal "Create.jsp" 5 times.(»ô—³
+^
+java:S1192;"HDefine a constant instead of duplicating this literal "message" 4 times.(¹ß»¢
+f	java:S117C"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ž¸¨Ö
+f
+java:S1301V"KReplace this "switch" statement by "if" statements to increase readability.(ë´åÝþÿÿÿÿ
+x	java:S116"^Rename this field "MAX_DISPLAY_IN_LIST" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÓË…§úÿÿÿÿ
+<
+java:S1170"!Make this final field static too.(ÓË…§úÿÿÿÿ
+—
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.( Üó
+—
+java:S1186u"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(€šÝ—
+—
+java:S1186y"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(‚“¶î
+P
+java:S1161":Add the "@Override" annotation above this method signature( Üó
+U
+java:S1161":Add the "@Override" annotation above this method signature(´È®‚ýÿÿÿÿ
+<	java:S131""Add a default case to this switch.(ë´åÝþÿÿÿÿ
+‚
+java:S1989"lHandle the following exceptions that could be thrown by "displayFormFishAdd": ServletException, IOException.(ÞßÃì
+‚
+java:S1989 "mHandle the following exceptions that could be thrown by "displayFormFishEdit": ServletException, IOException.(¨Ÿ»w
+„
+java:S1989$"iHandle the following exceptions that could be thrown by "displayMainMenu": ServletException, IOException.(þ¿´•ÿÿÿÿÿ
+~
+java:S1989("hHandle the following exceptions that could be thrown by "infoFishSelect": ServletException, IOException.(§ÿ®±
+P
+java:S1161T":Add the "@Override" annotation above this method signature(§œ×ä
+<	java:S131V""Add a default case to this switch.(ë´åÝþÿÿÿÿ
+|
+java:S1989X"aHandle the following exceptions that could be thrown by "addFish": ServletException, IOException.(÷ËÉþûÿÿÿÿ
+R
+java:S1172u"<Remove these unused method parameters "request", "response".(€šÝ—
+P
+java:S1161y":Add the "@Override" annotation above this method signature(‚“¶î

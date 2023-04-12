@@ -112,7 +112,6 @@ function saveNewHouseHold() {
                 $('#statusModal').modal("show");
                 break;
             case 500:
-
                 $("#actionStatus").html(data.responseJSON.message);
                 $("#statusModal").modal("show");
                 break;

@@ -11,7 +11,7 @@ public class TypeCustomerController {
 
     static final String COMMA_DELIMITER = ",";
 
-    static String fileName = "src\\crud\\data\\TypeCustomer.csv";
+    static String fileName = "src\\crud_basic\\data\\TypeCustomer.csv";
 
     static {
         readAndUpdateList();

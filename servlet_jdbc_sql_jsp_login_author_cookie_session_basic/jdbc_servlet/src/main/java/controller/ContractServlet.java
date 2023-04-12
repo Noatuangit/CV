@@ -105,7 +105,6 @@ public class ContractServlet extends HttpServlet {
                 formCreateContract(request, response);
                 break;
             }
-
             case "updateContract": {
                 updateContractForm(request, response);
                 break;

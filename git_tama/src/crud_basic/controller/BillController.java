@@ -13,7 +13,7 @@ public class BillController {
 
     static final String COMMA_DELIMITER = ",";
 
-    static String fileName = "src\\crud\\data\\Bill.csv";
+    static String fileName = "src\\crud_basic\\data\\Bill.csv";
 
     static {
        readAndUpdateList();

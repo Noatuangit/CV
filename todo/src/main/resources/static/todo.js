@@ -34,8 +34,10 @@ function drawRecord(str) {
     let tableResult = "";
     str.forEach(x => tableResult += `<tr><td>${x.title}</td>
 <td>${x.content}</td>
-<td><button onclick="updateById(${x.id},'cancel')" class="btn btn-outline-danger"><img src="img/icons8-delete-128.png"></button>
-<button onclick="updateById(${x.id},'done')" class="btn btn-outline-info"><img src="img/loading.png"></button></td></tr>`)
+<td><button onclick="updateById(${x.id},'cancel')" class="btn btn-outline-danger">
+<img src="img/icons8-delete-128.png"></button>
+<button onclick="updateById(${x.id},'done')" class="btn btn-outline-info">
+<img src="img/loading.png"></button></td></tr>`)
     return tableResult;
 }
 

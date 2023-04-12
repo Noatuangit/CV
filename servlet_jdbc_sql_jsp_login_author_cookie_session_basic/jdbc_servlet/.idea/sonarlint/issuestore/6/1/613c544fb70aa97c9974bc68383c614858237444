@@ -1,0 +1,21 @@
+
+f	java:S117q"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(”åûä
+l	java:S117Š"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(«¥Þªÿÿÿÿÿ
+W
+java:S1161%":Add the "@Override" annotation above this method signature(‹¨¯¿8Õ¥Ÿñí0
+<	java:S131'""Add a default case to this switch.(ë´åÝþÿÿÿÿ
+s
+java:S1989)"VHandle the following exception that could be thrown by "insertEmployee": SQLException.(õÆ‹8äùžñí0
+x
+java:S19891"VHandle the following exception that could be thrown by "updateEmployee": SQLException.(žÓà£ýÿÿÿÿ8äùžñí0
+\
+java:S1161W":Add the "@Override" annotation above this method signature(Ïû©Öûÿÿÿÿ8Ü¥Ÿñí0
+<	java:S131Y""Add a default case to this switch.(ë´åÝþÿÿÿÿ
+z
+java:S2226"XRemove this misleading mutable servlet instance field or make it "static" and/or "final"(÷ˆïãýÿÿÿÿ8ðùžñí0
+u
+java:S2226 "XRemove this misleading mutable servlet instance field or make it "static" and/or "final"(éÚÞÁ8ñùžñí0
+z
+java:S2226!"XRemove this misleading mutable servlet instance field or make it "static" and/or "final"(½œñúÿÿÿÿ8ñùžñí0
+z
+java:S2226""XRemove this misleading mutable servlet instance field or make it "static" and/or "final"(³»¤úÿÿÿÿ8ñùžñí0

@@ -1,0 +1,19 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+}
+
+.wrap-item-left {
+    width: 60%;
+    height: 100vh;
+    margin-left: 10px;
+     margin-right: 10px;
+}
+
+.wrap-item-right {
+    width: 35%;
+    height: 100vh;
+    margin-left: 10px;
+     margin-right: 10px;
+}
