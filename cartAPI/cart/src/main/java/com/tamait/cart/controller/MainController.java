@@ -1,6 +1,5 @@
 package com.tamait.cart.controller;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.tamait.cart.service.ICustomerService;
 import com.tamait.cart.service.IProductService;
 import org.springframework.beans.factory.annotation.Autowired;
