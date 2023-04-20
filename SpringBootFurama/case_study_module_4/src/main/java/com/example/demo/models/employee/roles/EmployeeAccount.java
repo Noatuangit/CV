@@ -21,7 +21,9 @@ public class EmployeeAccount {
     String password;
 
     @ManyToMany
-    @JoinTable(name = "user_role_author", joinColumns = @JoinColumn(name = "username"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+    @JoinTable(name = "user_role_author",
+            joinColumns = @JoinColumn(name = "username"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
     List<EmployeeRoles> list;
 
 }
